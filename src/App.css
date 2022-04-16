@@ -1,0 +1,16 @@
+html {
+  font-size: 62.5%;
+}
+
+.app {
+  min-height: 83vh;
+  background-color: #39445a;
+  color: white;
+  padding-top: 10vh;
+}
+
+@media (max-width: 750px) {
+  .app {
+    padding-top: 5vh;
+  }
+}
