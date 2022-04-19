@@ -1,0 +1,13 @@
+.search {
+  position: absolute;
+  margin-top: 7.5rem;
+  width: "100%";
+}
+
+@media (max-width: 750px) {
+  .search {
+    position: block;
+    margin-top: 1rem;
+    width: "100%";
+  }
+}

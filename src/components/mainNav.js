@@ -8,6 +8,7 @@ import TvIcon from "@mui/icons-material/Tv";
 import SearchIcon from "@mui/icons-material/Search";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Paper } from "@mui/material";
 
 export default function SimpleBottomNavigation() {
   const [value, setValue] = useState(0);
@@ -21,37 +22,42 @@ export default function SimpleBottomNavigation() {
   }, [value, navigate]);
 
   return (
-    <Box sx={{ width: "100%", position: "fixed" }}>
-      <BottomNavigation
-        sx={{ backgroundColor: "#000", color: "white" }}
-        showLabels
-        value={value}
-        onClick={(event, newValue) => {
-          setValue(newValue);
-          console.log(value);
-        }}
+    <Box sx={{ width: "100%"}}>
+      <Paper
+        sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
+        elevation={3}
       >
-        <BottomNavigationAction
-          style={{ color: "white" }}
-          label="Trending"
-          icon={<WhatshotIcon />}
-        />
-        <BottomNavigationAction
-          style={{ color: "white" }}
-          label="Movies"
-          icon={<MovieIcon />}
-        />
-        <BottomNavigationAction
-          style={{ color: "white" }}
-          label="TV"
-          icon={<TvIcon />}
-        />
-        <BottomNavigationAction
-          style={{ color: "white" }}
-          label="Search"
-          icon={<SearchIcon />}
-        />
-      </BottomNavigation>
+        <BottomNavigation
+          sx={{ backgroundColor: "#000", color: "white" }}
+          showLabels
+          value={value}
+          onChange={(event, newValue) => {
+            setValue(newValue);
+            console.log(value);
+          }}
+        >
+          <BottomNavigationAction
+            style={{ color: "white" }}
+            label="Trending"
+            icon={<WhatshotIcon />}
+          />
+          <BottomNavigationAction
+            style={{ color: "white" }}
+            label="Movies"
+            icon={<MovieIcon />}
+          />
+          <BottomNavigationAction
+            style={{ color: "white" }}
+            label="TV"
+            icon={<TvIcon />}
+          />
+          <BottomNavigationAction
+            style={{ color: "white" }}
+            label="Search"
+            icon={<SearchIcon />}
+          />
+        </BottomNavigation>
+      </Paper>
     </Box>
   );
 }

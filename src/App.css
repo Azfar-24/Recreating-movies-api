@@ -1,12 +1,28 @@
+
+*{
+  scroll-behavior: smooth;
+}
 html {
   font-size: 62.5%;
 }
 
-.app {
-  min-height: 83vh;
-  background-color: #39445a;
+/* .app {
+  min-height: 100vh;
+  background-color: rgb(18, 17, 17);
   color: white;
-  padding-top: 10vh;
+  padding-top: 8vh;
+} */
+
+body {
+  background-color: #ccc;
+}
+
+html {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 
 @media (max-width: 750px) {

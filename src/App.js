@@ -13,12 +13,12 @@ function App() {
     <BrowserRouter>
       <Header />
       <div className="app">
-        <Container>
+        <Container sx={{margin: "inherit"}}>
           <Routes>
-            <Route path="/" element={Trending} exact />
-            <Route path="/movies" element={Movies} exact />
-            <Route path="/series" element={TvShows} exact />
-            <Route path="/search" element={Search} exact />
+            <Route path="/" element={Trending} />
+            <Route path="/movies" element={Movies} />
+            <Route path="/series" element={TvShows} />
+            <Route path="/search" element={Search} />
           </Routes>
         </Container>
       </div>

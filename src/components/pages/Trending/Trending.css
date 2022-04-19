@@ -1,0 +1,30 @@
+.trending {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 5.5rem;
+}
+.pageTitle {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  font-family: inherit;
+  /* padding-bottom: 0.4rem; */
+  border-radius: 5rem;
+  color: black;
+  font-size: 250%;
+  margin-top: 5.5rem;
+}
+
+@media (max-width: 750px) {
+  .pageTitle {
+    font-size: 150%;
+    padding-top: 0;
+    margin-bottom: 1rem; margin-top: 0.5rem;
+  }
+}
+.main-container {
+  position: absolute;
+  z-index: -1;
+  left: 0;
+}
