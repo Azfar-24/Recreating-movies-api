@@ -11,3 +11,8 @@
     width: "100%";
   }
 }
+.filter{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}

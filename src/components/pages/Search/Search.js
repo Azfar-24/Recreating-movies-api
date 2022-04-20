@@ -28,7 +28,7 @@ const Search = () => {
         type ? "tv" : "movie"
       }?&api_key=124b078b3a77d5719ea1f5da1969d540&query=${search}&page=${page}`
     );
-    
+
     setContent(data.results);
     setTotalPages(data.total_pages);
   };
@@ -61,19 +61,21 @@ const Search = () => {
             <SearchIcon />
           </Button>
         </div>
-        <Tabs
-          textColor="primary"
-          indicatorColor="primary"
-          value={type}
-          onChange={(event, newValue) => {
-            setType(newValue);
-            setPage(1);
-          }}
-          aria-label="basic tabs example"
-        >
-          <Tab label="Search Movies" sx={{ width: "50%" }} />
-          <Tab label="Search Tv Series" sx={{ width: "50%" }} />
-        </Tabs>
+        <div className="filter">
+          <Tabs sx={{ width: "100%" }}
+            textColor="primary"
+            indicatorColor="primary"
+            value={type}
+            onChange={(event, newValue) => {
+              setType(newValue);
+              setPage(1);
+            }}
+            aria-label="basic tabs example"
+          >
+            <Tab label="Search Movies" sx={{ width: "50%" }} />
+            <Tab label="Search Tv Series" sx={{ width: "50%" }} />
+          </Tabs>
+        </div>
       </ThemeProvider>
       <div className="main-container">
         <div className="trending">
