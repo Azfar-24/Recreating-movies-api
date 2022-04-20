@@ -6,14 +6,14 @@ import { CustomPagination } from "../../CustomPagination/CustomPagination";
 const TvShows = () => {
   const [content, setContent] = useState([]);
   const [page, setPage] = useState();
+  const [totalPages, setTotalPages] = useState(1);
 
   const FetchMovie = async () => {
     const { data } = await axios.get(
       `https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=124b078b3a77d5719ea1f5da1969d540&page=${page}`
     );
-    console.log(data.results);
+    setTotalPages(data.total_pages);
     setContent(data.results);
-    setPage(data.total_pages)
   };
   useEffect(() => {
     FetchMovie();
@@ -30,14 +30,14 @@ const TvShows = () => {
                 poster={data.poster_path}
                 title={data.title || data.name}
                 date={data.first_air_date || data.release_date}
-                media='Tv Show'
+                media="Tv Show"
                 vote={data.vote_average}
                 overview={data.overview}
               />
             ))
           : ""}
       </div>
-      <CustomPagination setPage={setPage} />
+      <CustomPagination setPage={setPage} totalPages={totalPages} />
     </div>
   );
 };

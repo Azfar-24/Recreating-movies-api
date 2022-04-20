@@ -7,6 +7,7 @@ import { CustomPagination } from "../../CustomPagination/CustomPagination";
 const Trending = () => {
   const [content, setContent] = useState([]);
   const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const FetchTrending = async () => {
     const { data } = await axios.get(
@@ -14,7 +15,7 @@ const Trending = () => {
     );
     console.log(data);
     setContent(data.results);
-    // setPage(data.total_pages);
+    setTotalPages(data.total_pages);
   };
   useEffect(() => {
     FetchTrending();
@@ -38,7 +39,7 @@ const Trending = () => {
             ))
           : ""}
       </div>
-      <CustomPagination setPage={setPage} />
+      <CustomPagination setPage={setPage} totalPages={totalPages} />
     </div>
   );
 };

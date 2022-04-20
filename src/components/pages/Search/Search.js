@@ -13,6 +13,7 @@ const Search = () => {
   const [page, setPage] = useState(1);
   const [search, SetSearch] = useState("");
   const [content, setContent] = useState();
+  const [totalPages, setTotalPages] = useState(1);
 
   const theme = createTheme({
     palette: {
@@ -27,9 +28,9 @@ const Search = () => {
         type ? "tv" : "movie"
       }?&api_key=124b078b3a77d5719ea1f5da1969d540&query=${search}&page=${page}`
     );
-  
+    
     setContent(data.results);
-    // setPage(data.total_pages);
+    setTotalPages(data.total_pages);
   };
 
   useEffect(() => {
@@ -91,7 +92,11 @@ const Search = () => {
               ))
             : ""}
         </div>
-        {content ? <CustomPagination setPage={setPage} /> : ""}
+        {content ? (
+          <CustomPagination setPage={setPage} totalPages={totalPages} />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
